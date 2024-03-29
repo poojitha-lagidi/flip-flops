@@ -4,3 +4,5 @@ Edge triggering is also called as **Dynamic Triggering** where output changes wi
 Use non-blocking operator for sequential logic.
 The FFs in this project has a positive edge clock, the reset is synchronous with the clock signal. 
 always blocks are commonly used for describing sequential logic. In the testbench the reset is first set to '_0_' and then to '_1_' to bring the circuit to stable state. 
+<br />
+In Verilog, urandom_range() is a system function used to generate random unsigned integers within a specified range. This function is commonly used in verification environments, especially when randomized testbenches are employed to verify the functionality of digital designs.
