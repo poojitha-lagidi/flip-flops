@@ -16,7 +16,7 @@ module sr_ff (
 			2'b01 :  q <= 0;  
 			2'b10 :  q <= 1;  
 			2'b11 :  q <= 1'bX;  
-        endcase 
+       		endcase 
 	  end
 	end
 	
@@ -27,13 +27,13 @@ endmodule
 `timescale 1us/1ns
 module sr_ff_tb();
 
-    reg s; reg r;
+    	reg s; reg r;
 	reg clk = 0;
 	reg reset;
 	wire q;
-    wire q_not;
+    	wire q_not;
 	reg [1:0] delay;
-    integer i;
+    	integer i;
 	
 	// Instantiate the DUT
 	sr_ff SRFF0( .clk(clk), .reset(reset), .s(s), .r(r), .q(q), .q_not(q_not));
@@ -43,8 +43,8 @@ module sr_ff_tb();
 	    #0.5 clk = ~clk;
 	end
 	
-    // Create stimulus	  
-    initial begin
+   	// Create stimulus	  
+    	initial begin
 		reset = 0; s = 0; r = 0;
 		#1;	reset = 1;
 		#1; s = 0; r = 1;
@@ -55,8 +55,8 @@ module sr_ff_tb();
 	    #(1.2); reset = 0; // reset the FF again		
 	end
 	
-    // This will stop the simulator when the time expires
-    initial begin
-        #10 $stop;
-    end  
+    	// This will stop the simulator when the time expires
+    	initial begin
+    	    #10 $stop;
+   	end  
 endmodule
