@@ -16,7 +16,7 @@ module jk_ff (
 			2'b01 :  q <= 0;  
 			2'b10 :  q <= 1;  
 			2'b11 :  q <= ~q;  
-        endcase 
+       		endcase 
 	  end
 	end
 	
@@ -27,13 +27,13 @@ endmodule
 `timescale 1us/1ns
 module jk_ff_tb();
 
-    reg j; reg k;
+    	reg j; reg k;
 	reg clk = 0;
 	reg reset;
 	wire q;
-    wire q_not;
+    	wire q_not;
 	reg [1:0] delay;
-    integer i;
+   	integer i;
 	
 	// Instantiate the DUT
 	jk_ff JKFF0( .clk(clk), .reset(reset), .j(j), .k(k), .q(q), .q_not(q_not));
@@ -43,8 +43,8 @@ module jk_ff_tb();
 	    #0.5 clk = ~clk;
 	end
 	
-    // Create stimulus	  
-    initial begin
+    	// Create stimulus	  
+    	initial begin
 		reset = 0; j = 0; k = 0;
 		#1;	reset = 1;
 		#1; j = 0; k = 1;
@@ -52,11 +52,11 @@ module jk_ff_tb();
 		#1; j = 1; k = 1;
 		#1; j = 0; k = 0;
 		#1; j = 1; k = 0;
-	    #(1.2); reset = 0; // reset the FF again		
-	end
+	   	#(1.2); reset = 0; // reset the FF again		
+	 end
 	
-    // This will stop the simulator when the time expires
-    initial begin
-        #10 $stop;
-    end  
+    	// This will stop the simulator when the time expires
+   	initial begin
+    	    #10 $stop;
+    	end  
 endmodule
